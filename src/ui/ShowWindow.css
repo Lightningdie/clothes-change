@@ -1,0 +1,24 @@
+.ShowWindow {
+  width: 130px;
+  height: 100%;
+  top: 8vh;
+  position: absolute;
+  background-color: yellow;
+  scrollbar-width: thin;  /* 更细的滚动条 */
+  scrollbar-color: #888 transparent;  /* 滚动条颜色 */
+}
+
+/* 可选：自定义滚动条样式（仅适用于Webkit浏览器） */
+.ShowWindow::-webkit-scrollbar {
+  height: 8px;
+}
+.ShowWindow::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.ClothPic {
+  width: 100px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  position: relative;
+}

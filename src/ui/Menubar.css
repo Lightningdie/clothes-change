@@ -1,0 +1,7 @@
+.Menubar {
+  width: 100%;
+  height: 5vh;
+  position: absolute;
+  background-color: blue;
+  z-index: 2;
+}
