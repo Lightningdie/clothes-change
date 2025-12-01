@@ -1,8 +1,7 @@
 .ShowWindow {
   width: 100%;
-  height: calc(100vh - 5vh);
-  top: 5vh;
-  position: absolute;
+  flex: 1;
+  position: relative;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   scrollbar-width: thin;
   scrollbar-color: #888 transparent;
@@ -12,6 +11,8 @@
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0;
 }
 
 .ShowWindow::-webkit-scrollbar {
@@ -30,9 +31,11 @@
 .ClothPic {
   width: 150px;
   min-width: 150px;
-  padding: 10px 15px;
+  padding: 15px 20px;
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.2s ease;
   flex-shrink: 0;
 }
@@ -57,23 +60,23 @@
 }
 
 .ImageLoader {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #f0f0f0;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .ImageError {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #ffeaea;
-  border-radius: 8px;
+  border-radius: 12px;
   color: #ff4d4f;
   font-size: 12px;
   text-align: center;
@@ -81,10 +84,10 @@
 }
 
 .ImagePlaceholder {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   background-color: #f0f0f0;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .ClothPicContainer {
@@ -97,22 +100,42 @@
   transition: opacity 0.2s ease;
 }
 
-@media (max-width: 768px) {
+/* PC端优化 */
+@media (min-width: 769px) {
   .ShowWindow {
-    height: 13vh;
-    top: 13vh;
+    padding: 20px 0;
   }
   
   .ClothPic {
-    width: 120px;
-    min-width: 120px;
-    padding: 8px 10px;
+    width: 180px;
+    min-width: 180px;
+    padding: 20px 25px;
   }
   
   .ImageLoader,
   .ImageError,
   .ImagePlaceholder {
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* 移动端布局 */
+@media (max-width: 768px) {
+  .ShowWindow {
+    padding: 10px 0;
+  }
+  
+  .ClothPic {
+    width: 120px;
+    min-width: 120px;
+    padding: 10px 12px;
+  }
+  
+  .ImageLoader,
+  .ImageError,
+  .ImagePlaceholder {
+    width: 120px;
+    height: 120px;
   }
 }
