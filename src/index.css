@@ -1,9 +1,11 @@
 body, html {
   overflow-y: auto;  /* 允许垂直滚动 */
+  overflow-x: hidden;  /* 禁止横向滚动 */
   position: relative;   /* 允许正常文档流 */
   scrollbar-width: none;
   width: 100%;
   height: 100%;
+  max-width: 100vw;  /* 确保不超出视口宽度 */
 }
 
 body {

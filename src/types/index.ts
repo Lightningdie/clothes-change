@@ -57,6 +57,7 @@ export interface ShowWindowState {
   imageLoading: boolean;
   imageError: boolean;
   placedImages: PlacedImage[];
+  selectedCloth: ClothType | null;
 }
 
 export interface ShowWindowProps {
@@ -64,6 +65,9 @@ export interface ShowWindowProps {
   side?: string;
   clothPosition?: number;
   onPlacedImagesChange?: (images: PlacedImage[]) => void;
+  onClothSelect?: (clothType: ClothType) => void;
+  showUploadButton?: boolean;
+  onUploadClick?: () => void;
 }
 
 export interface MenubarProps {

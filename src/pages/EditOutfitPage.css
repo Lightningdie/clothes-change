@@ -46,6 +46,87 @@
   }
 }
 
+.SelectedClothsArea {
+  padding: 20px;
+  background: white;
+  margin: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 150px;
+}
+
+.SelectedClothsTitle {
+  margin: 0 0 16px 0;
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.SelectedClothsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.SelectedClothItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  background: #f5f7fa;
+  border-radius: 8px;
+  position: relative;
+}
+
+.SelectedClothLabel {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.SelectedClothContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.SelectedClothName {
+  font-size: 0.75rem;
+  color: #333;
+  text-align: center;
+}
+
+.RemoveClothButton {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  color: #ff4d4f;
+  background: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.RemoveClothButton:hover {
+  background: #ff4d4f;
+  color: white;
+}
+
+.UploadPreview {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* 移动端布局 */
 @media (max-width: 768px) {
   .EditOutfitHeader {
@@ -60,5 +141,15 @@
   .SaveButton {
     min-width: 80px;
     font-size: 12px;
+  }
+  
+  .SelectedClothsArea {
+    padding: 16px;
+    margin: 16px;
+  }
+  
+  .SelectedClothsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
   }
 }

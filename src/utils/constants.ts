@@ -8,8 +8,8 @@ export const ANIMATION_DURATION: number = 300; // 动画持续时间（毫秒）
 export const IMAGE_DISPLAY_COUNT: number = 10; // 默认显示的图片数量
 
 export const IMAGE_SIZE = {
-  width: 100,
-  height: 100
+  width: 120,
+  height: 120
 } as const;
 
 export const RESPONSIVE_BREAKPOINTS = {

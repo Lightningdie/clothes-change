@@ -29,9 +29,9 @@
 }
 
 .ClothPic {
-  width: 150px;
-  min-width: 150px;
-  padding: 15px 20px;
+  width: 130px;
+  min-width: 130px;
+  padding: 15px 10px;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -42,6 +42,26 @@
 
 .ClothPic:hover {
   transform: scale(1.05);
+}
+
+.ClothPicSelected {
+  border: 3px solid #667eea;
+  border-radius: 12px;
+  background-color: rgba(102, 126, 234, 0.1);
+}
+
+.UploadButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+}
+
+.UploadButton {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .ClothImage {
@@ -60,8 +80,8 @@
 }
 
 .ImageLoader {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,8 +90,8 @@
 }
 
 .ImageError {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,8 +104,8 @@
 }
 
 .ImagePlaceholder {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   background-color: #f0f0f0;
   border-radius: 12px;
 }
@@ -107,16 +127,9 @@
   }
   
   .ClothPic {
-    width: 180px;
-    min-width: 180px;
-    padding: 20px 25px;
-  }
-  
-  .ImageLoader,
-  .ImageError,
-  .ImagePlaceholder {
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    min-width: 150px;
+    padding: 15px 20px;
   }
 }
 
@@ -127,15 +140,7 @@
   }
   
   .ClothPic {
-    width: 120px;
-    min-width: 120px;
-    padding: 10px 12px;
-  }
-  
-  .ImageLoader,
-  .ImageError,
-  .ImagePlaceholder {
-    width: 120px;
-    height: 120px;
+    min-width: 100px;
+    padding: 10px 0px;
   }
 }

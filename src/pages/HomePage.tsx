@@ -19,13 +19,14 @@ export default function HomePage() {
         {/* 用户信息卡片 */}
         <Card className="UserInfoCard" title="个人信息" bordered={false}>
           <div className="UserInfoContent">
-            <Avatar size={64} icon={<UserOutlined />} src={userInfo?.avatar} />
+            <Avatar size={48} icon={<UserOutlined />} src={userInfo?.avatar} />
             <div className="UserInfoDetails">
               <h3>{userInfo?.name || '未设置'}</h3>
               <p>{userInfo?.email || '暂无邮箱'}</p>
             </div>
             <Button 
               type="primary" 
+              size="small"
               onClick={() => navigate('/profile')}
             >
               编辑信息
