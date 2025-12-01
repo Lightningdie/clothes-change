@@ -1,0 +1,63 @@
+.UploadClothPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+}
+
+.UploadClothHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.UploadClothTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.UploadClothContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.UploadClothCard {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.UploadClothForm {
+  padding: 20px 0;
+}
+
+.UploadPreview {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.UploadPreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .UploadClothHeader {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .UploadClothTitle {
+    font-size: 1.5rem;
+  }
+}
+

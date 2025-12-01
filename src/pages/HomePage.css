@@ -1,0 +1,114 @@
+.HomePage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+}
+
+.HomePageHeader {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 20px;
+}
+
+.HomePageTitle {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.HomePageContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.UserInfoCard {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.UserInfoContent {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.UserInfoDetails {
+  flex: 1;
+  min-width: 200px;
+}
+
+.UserInfoDetails h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.UserInfoDetails p {
+  margin: 0;
+  color: #666;
+}
+
+.FunctionCards {
+  margin-top: 24px;
+}
+
+.FunctionCard {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+}
+
+.FunctionCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.FunctionCardContent {
+  text-align: center;
+  padding: 20px;
+}
+
+.FunctionIcon {
+  font-size: 48px;
+  color: #667eea;
+  margin-bottom: 16px;
+}
+
+.FunctionCardContent h3 {
+  margin: 16px 0 8px 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.FunctionCardContent p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .HomePageTitle {
+    font-size: 2rem;
+  }
+  
+  .UserInfoContent {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .FunctionCardContent {
+    padding: 16px;
+  }
+  
+  .FunctionIcon {
+    font-size: 36px;
+  }
+}
+
+

@@ -1,0 +1,73 @@
+.MenuButtonContainer {
+  width: 100%;
+  justify-content: center;
+}
+
+.MenuButton {
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.MenuButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.MenuButtonActive {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  border-color: #ff6b6b;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
+}
+
+.MenuButtonActive:hover {
+  background: linear-gradient(135deg, #ff5252 0%, #e53935 100%);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.6);
+}
+
+.MenuButtonWithSubMenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.SubMenuIndicator {
+  font-size: 10px;
+  margin-left: 4px;
+  transition: transform 0.3s ease;
+}
+
+.MenuButtonContainer :global(.ant-dropdown-menu) {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.MenuButtonContainer :global(.ant-dropdown-menu-item) {
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+}
+
+.MenuButtonContainer :global(.ant-dropdown-menu-item:hover) {
+  background-color: #f0f0f0;
+}
+
+.MenuButtonContainer :global(.ant-dropdown-menu-item-selected) {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+
+@media (max-width: 768px) {
+  .MenuButton {
+    min-width: 60px;
+    font-size: 12px;
+    padding: 4px 12px;
+  }
+  
+  .SubMenuIndicator {
+    font-size: 8px;
+  }
+}
+
+
