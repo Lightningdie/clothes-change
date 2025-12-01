@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Row, Col, Button, Avatar } from 'antd';
-import { UserOutlined, EditOutlined, FolderOutlined, UploadOutlined } from '@ant-design/icons';
+import { UserOutlined, EditOutlined, FolderOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { getUserInfo } from '../utils/storage';
 import './HomePage.css';
@@ -36,7 +36,7 @@ export default function HomePage() {
 
         {/* 功能卡片 */}
         <Row gutter={[16, 16]} className="FunctionCards">
-          <Col xs={24} sm={12} lg={8}>
+          <Col xs={24} sm={12} lg={12}>
             <Card
               hoverable
               className="FunctionCard"
@@ -50,7 +50,7 @@ export default function HomePage() {
             </Card>
           </Col>
 
-          <Col xs={24} sm={12} lg={8}>
+          <Col xs={24} sm={12} lg={12}>
             <Card
               hoverable
               className="FunctionCard"
@@ -60,20 +60,6 @@ export default function HomePage() {
                 <FolderOutlined className="FunctionIcon" />
                 <h3>我的穿搭</h3>
                 <p>查看已保存的穿搭搭配</p>
-              </div>
-            </Card>
-          </Col>
-
-          <Col xs={24} sm={12} lg={8}>
-            <Card
-              hoverable
-              className="FunctionCard"
-              onClick={() => navigate('/upload')}
-            >
-              <div className="FunctionCardContent">
-                <UploadOutlined className="FunctionIcon" />
-                <h3>上传服饰</h3>
-                <p>上传你的服饰图片</p>
               </div>
             </Card>
           </Col>
