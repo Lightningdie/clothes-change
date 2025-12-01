@@ -1,6 +1,16 @@
 .MenuButtonContainer {
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.MenuButtonContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .MenuButton {
@@ -8,6 +18,7 @@
   border-radius: 6px;
   font-weight: 500;
   min-width: 80px;
+  flex-shrink: 0;
 }
 
 .MenuButton:hover {

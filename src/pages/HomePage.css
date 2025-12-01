@@ -1,21 +1,31 @@
 .HomePage {
   min-height: 100vh;
+  width: 100%;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   padding: 20px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
 }
 
 .HomePageHeader {
   text-align: center;
   margin-bottom: 40px;
-  padding-top: 20px;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
 }
 
 .HomePageTitle {
   font-size: 2.5rem;
   font-weight: 600;
-  color: #333;
+  color: #ffffff;
   margin: 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
 }
 
 .HomePageContent {
@@ -93,8 +103,19 @@
 }
 
 @media (max-width: 768px) {
+  .HomePage {
+    padding: 15px;
+    padding-bottom: 30px;
+  }
+  
+  .HomePageHeader {
+    padding: 20px 15px;
+    margin-bottom: 30px;
+  }
+  
   .HomePageTitle {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
   }
   
   .UserInfoContent {
@@ -108,6 +129,22 @@
   
   .FunctionIcon {
     font-size: 36px;
+  }
+}
+
+/* iPhone 14 Pro Max 和其他大屏设备 */
+@media (min-width: 428px) and (max-width: 430px) {
+  .HomePage {
+    padding: 20px;
+    padding-bottom: 50px;
+  }
+  
+  .HomePageHeader {
+    padding: 25px 20px;
+  }
+  
+  .HomePageTitle {
+    font-size: 2.2rem;
   }
 }
 

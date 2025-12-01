@@ -213,10 +213,6 @@ export default class ShowWindow extends Component<ShowWindowProps, ShowWindowSta
       <>
         <div
           className="ShowWindow"
-          style={{
-            overflowX: "auto",
-            whiteSpace: "nowrap",
-          }}
         >
           {Array.from({ length: IMAGE_DISPLAY_COUNT }).map((_, index) => 
             this.renderImageItem(index)

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Input, Button, Card, Avatar, Upload, message } from 'antd';
-import { UserOutlined, HomeOutlined, UploadOutlined } from '@ant-design/icons';
+import { UserOutlined, HomeOutlined, UploadOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { getUserInfo, saveUserInfo } from '../utils/storage';
 import { UserInfo } from '../types';
@@ -11,6 +11,7 @@ export default function ProfilePage() {
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const [avatar, setAvatar] = useState<string>('');
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   useEffect(() => {
     const userInfo = getUserInfo();
@@ -28,7 +29,10 @@ export default function ProfilePage() {
       avatar: avatar || values.avatar
     };
     saveUserInfo(userInfo);
-    message.success('个人信息保存成功！');
+    setShowSuccessMessage(true);
+    setTimeout(() => {
+      setShowSuccessMessage(false);
+    }, 3000);
   };
 
   const uploadProps: UploadProps = {
@@ -82,16 +86,24 @@ export default function ProfilePage() {
             className="ProfileForm"
           >
             <Form.Item label="头像" className="AvatarItem">
-              <Upload {...uploadProps}>
-                {avatar ? (
-                  <Avatar size={100} src={avatar} icon={<UserOutlined />} />
-                ) : (
-                  <div>
-                    <UploadOutlined style={{ fontSize: 24 }} />
-                    <div style={{ marginTop: 8 }}>上传头像</div>
+              <div className="AvatarWrapper">
+                <Upload {...uploadProps}>
+                  {avatar ? (
+                    <Avatar size={100} src={avatar} icon={<UserOutlined />} />
+                  ) : (
+                    <div>
+                      <UploadOutlined style={{ fontSize: 24 }} />
+                      <div style={{ marginTop: 8 }}>上传头像</div>
+                    </div>
+                  )}
+                </Upload>
+                {showSuccessMessage && (
+                  <div className="SaveSuccessMessage">
+                    <CheckCircleOutlined />
+                    <span>保存成功</span>
                   </div>
                 )}
-              </Upload>
+              </div>
             </Form.Item>
 
             <Form.Item
