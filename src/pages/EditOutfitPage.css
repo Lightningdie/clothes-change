@@ -171,8 +171,8 @@
   }
   
   .SelectedClothsArea {
-    padding: 16px;
-    margin: 16px;
+    padding: 10px;
+    margin: 10px;
   }
   
   .SelectedClothsGrid {
@@ -181,8 +181,8 @@
   }
   
   .DraggableImageArea {
-    min-height: 200px;
-    margin: 16px;
+    min-height: 410px;
+    margin: 5px;
   }
   
   .DraggableImageArea::before {
