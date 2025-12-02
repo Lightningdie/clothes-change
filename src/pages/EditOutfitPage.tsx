@@ -9,7 +9,7 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import DraggableImage from '../components/DraggableImage';
 import { DEFAULT_CLOTH_TYPE } from '../utils/constants';
 import { preloadImages } from '../data/clothesData';
-import { saveOutfit, saveUploadedCloth, getUploadedCloths } from '../utils/storage';
+import { saveOutfit, saveUploadedCloth } from '../utils/storage';
 import { getAllCategories } from '../data/clothesData';
 import { ClothType, PlacedImage, CategoryType, DraggableImage as DraggableImageType } from '../types';
 import type { UploadProps } from 'antd';

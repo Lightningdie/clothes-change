@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Image, Button } from 'antd';
 import { CloseOutlined, RotateRightOutlined } from '@ant-design/icons';
 import { DraggableImage as DraggableImageType } from '../types';
@@ -34,7 +34,7 @@ export default function DraggableImage({ image, onUpdate, onRemove }: DraggableI
     e.preventDefault();
   };
 
-  const handleMouseMove = (e: MouseEvent | TouchEvent) => {
+  const handleMouseMove = useCallback((e: MouseEvent | TouchEvent) => {
     const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
     const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
     
@@ -66,13 +66,13 @@ export default function DraggableImage({ image, onUpdate, onRemove }: DraggableI
         });
       }
     }
-  };
+  }, [isDragging, isResizing, isRotating, dragStart, resizeStart, rotateStart, image, onUpdate]);
 
-  const handleMouseUp = () => {
+  const handleMouseUp = useCallback(() => {
     setIsDragging(false);
     setIsResizing(false);
     setIsRotating(false);
-  };
+  }, []);
 
   const handleResizeStart = (e: React.MouseEvent | React.TouchEvent) => {
     e.stopPropagation();
@@ -118,7 +118,7 @@ export default function DraggableImage({ image, onUpdate, onRemove }: DraggableI
         document.removeEventListener('touchend', handleMouseUp);
       };
     }
-  }, [isDragging, isResizing, isRotating, dragStart, resizeStart, rotateStart, image]);
+  }, [isDragging, isResizing, isRotating, handleMouseMove, handleMouseUp]);
 
   return (
     <div
