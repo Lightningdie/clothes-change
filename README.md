@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# 小猫猫的衣橱
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+一个在线穿搭搭配应用，帮助你轻松管理和搭配服饰。
 
-## Available Scripts
+## 🌐 在线演示
 
-In the project directory, you can run:
+**Demo地址：** [https://clothes-change.vercel.app/](https://clothes-change.vercel.app/)
 
-### `npm start`
+## ✨ 主要功能
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📱 个人信息管理
+- 个人资料设置和编辑
+- 头像上传和展示
+- 信息保存成功提示
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 👔 服饰管理
+- 浏览不同类别的服饰（上装、下装、配饰、鞋类等）
+- 上传自定义服饰图片
+- 服饰分类水平滚动浏览
 
-### `npm test`
+### 🎨 穿搭编辑
+- 点击选择服饰进行搭配
+- 已选服饰展示区域
+- 可拖拽图片展示区
+  - 支持拖拽调整位置
+  - 支持调整图片大小
+  - 支持旋转图片方向
+- 保存穿搭搭配
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 📂 穿搭收藏
+- 查看已保存的穿搭
+- 管理收藏的搭配方案
 
-### `npm run build`
+### 📱 响应式设计
+- 完美适配PC端和移动端
+- 优化的移动端交互体验
+- 流畅的滚动和触摸操作
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ 技术栈
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React 19
+- TypeScript
+- Ant Design
+- React Router
+- Vercel 部署
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 快速开始
 
-### `npm run eject`
+```bash
+# 安装依赖
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# 启动开发服务器
+npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 构建生产版本
+npm run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📄 许可证
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT License
