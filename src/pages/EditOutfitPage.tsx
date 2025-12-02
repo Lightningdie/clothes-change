@@ -241,7 +241,7 @@ export default function EditOutfitPage() {
         />
         
         {/* 可拖拽图片展示区域 */}
-        <div className="DraggableImageArea">
+        <div className={`DraggableImageArea ${draggableImages.length > 0 ? 'hasImages' : ''}`}>
           {draggableImages.map(image => (
             <DraggableImage
               key={image.id}
