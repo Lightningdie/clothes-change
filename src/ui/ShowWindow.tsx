@@ -3,7 +3,6 @@ import { Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { getClothConfig, getAllCategories } from "../data/clothesData";
 import { getUploadedCloths } from "../utils/storage";
-import { IMAGE_DISPLAY_COUNT } from "../utils/constants";
 import { getCachedImage } from "../utils/imageLoader";
 import LazyImage from "../components/LazyImage";
 import { ShowWindowProps, ShowWindowState, ClothType } from "../types";
@@ -60,7 +59,7 @@ export default class ShowWindow extends Component<ShowWindowProps, ShowWindowSta
     }
   };
 
-  getDisplayImages = (): Array<{ type: 'default' | 'uploaded', clothType: ClothType, imagePath: string, name: string }> => {
+  getDisplayImages = (): Array<{ type: 'default' | 'uploaded', clothType: ClothType, imagePath: string, name: string, id: string }> => {
     const { clothType } = this.props;
     const config = getClothConfig(clothType);
     const uploadedCloths = getUploadedCloths();
@@ -78,31 +77,42 @@ export default class ShowWindow extends Component<ShowWindowProps, ShowWindowSta
       return cloth.clothType === clothType;
     });
 
-    // 默认图片
-    const defaultImages = Array.from({ length: IMAGE_DISPLAY_COUNT }).map(() => ({
+    // 默认图片 - 只显示一个，避免重复
+    const defaultImage = {
       type: 'default' as const,
       clothType: clothType,
       imagePath: config.imagePath,
-      name: config.name
-    }));
+      name: config.name,
+      id: `default-${clothType}`
+    };
 
-    // 上传的图片
-    const uploadedImages = categoryCloths.map(cloth => ({
-      type: 'uploaded' as const,
-      clothType: cloth.clothType,
-      imagePath: cloth.imagePath,
-      name: cloth.name
-    }));
+    // 上传的图片 - 使用Set去重，基于imagePath
+    const seenPaths = new Set<string>();
+    const uploadedImages = categoryCloths
+      .filter(cloth => {
+        if (seenPaths.has(cloth.imagePath)) {
+          return false;
+        }
+        seenPaths.add(cloth.imagePath);
+        return true;
+      })
+      .map(cloth => ({
+        type: 'uploaded' as const,
+        clothType: cloth.clothType,
+        imagePath: cloth.imagePath,
+        name: cloth.name,
+        id: cloth.id
+      }));
 
-    return [...defaultImages, ...uploadedImages];
+    return [defaultImage, ...uploadedImages];
   };
 
-  renderImageItem = (item: { type: 'default' | 'uploaded', clothType: ClothType, imagePath: string, name: string }, index: number) => {
+  renderImageItem = (item: { type: 'default' | 'uploaded', clothType: ClothType, imagePath: string, name: string, id: string }) => {
     const isSelected = this.state.selectedCloth === item.clothType && item.type === 'default';
     
     return (
       <div 
-        key={`${item.type}-${index}`} 
+        key={item.id} 
         className={`ClothPic ${isSelected ? 'ClothPicSelected' : ''}`}
         onClick={(e) => this.handleClick(e, item.clothType)}
       >
@@ -121,7 +131,7 @@ export default class ShowWindow extends Component<ShowWindowProps, ShowWindowSta
     return (
       <>
         <div className="ShowWindow">
-          {images.map((item, index) => this.renderImageItem(item, index))}
+          {images.map((item) => this.renderImageItem(item))}
           {this.props.showUploadButton && (
             <div className="ClothPic UploadButtonContainer">
               <Button

@@ -135,14 +135,33 @@
     letter-spacing: 1px;
   }
   
+  .UserInfoCard {
+    margin-bottom: 20px;
+  }
+  
+  .UserInfoCard :global(.ant-card-head-title) {
+    padding: 10px 0;
+    font-size: 0.9rem;
+  }
+  
   .UserInfoContent {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 12px;
+    align-items: center;
   }
   
   .UserInfoDetails {
-    flex: 1 1 100%;
-    text-align: center;
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+  }
+  
+  .UserInfoDetails h3 {
+    font-size: 0.9rem;
+  }
+  
+  .UserInfoDetails p {
+    font-size: 0.8rem;
   }
   
   .FunctionCardContent {

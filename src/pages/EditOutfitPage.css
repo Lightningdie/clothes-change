@@ -46,6 +46,33 @@
   }
 }
 
+.DraggableImageArea {
+  position: relative;
+  min-height: 300px;
+  margin: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 2px dashed #e0e0e0;
+}
+
+.DraggableImageArea::before {
+  content: '拖拽已选服饰到此处，可调整位置、大小和方向';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #999;
+  font-size: 0.875rem;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.DraggableImageArea:has(.DraggableImageContainer)::before {
+  display: none;
+}
+
 .SelectedClothsArea {
   padding: 20px;
   background: white;
@@ -151,5 +178,16 @@
   .SelectedClothsGrid {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 12px;
+  }
+  
+  .DraggableImageArea {
+    min-height: 200px;
+    margin: 16px;
+  }
+  
+  .DraggableImageArea::before {
+    font-size: 0.75rem;
+    padding: 0 10px;
+    text-align: center;
   }
 }

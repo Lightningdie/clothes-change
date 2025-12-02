@@ -46,6 +46,17 @@ export interface PlacedImage {
   y: number;
 }
 
+export interface DraggableImage {
+  id: string;
+  src: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  rotation: number;
+  clothType: ClothType;
+}
+
 export interface ShowWindowState {
   side: string;
   clothPosition: number;

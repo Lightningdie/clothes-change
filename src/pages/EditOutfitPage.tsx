@@ -6,11 +6,12 @@ import { Image } from 'antd';
 import ShowWindow from '../ui/ShowWindow';
 import Menubar from '../ui/Menubar';
 import ErrorBoundary from '../components/ErrorBoundary';
+import DraggableImage from '../components/DraggableImage';
 import { DEFAULT_CLOTH_TYPE } from '../utils/constants';
 import { preloadImages } from '../data/clothesData';
 import { saveOutfit, saveUploadedCloth, getUploadedCloths } from '../utils/storage';
 import { getAllCategories } from '../data/clothesData';
-import { ClothType, PlacedImage, CategoryType } from '../types';
+import { ClothType, PlacedImage, CategoryType, DraggableImage as DraggableImageType } from '../types';
 import type { UploadProps } from 'antd';
 import './EditOutfitPage.css';
 
@@ -27,6 +28,7 @@ export default function EditOutfitPage() {
     '鞋类': null
   });
   const [placedImages, setPlacedImages] = useState<PlacedImage[]>([]);
+  const [draggableImages, setDraggableImages] = useState<DraggableImageType[]>([]);
   const [saveModalVisible, setSaveModalVisible] = useState(false);
   const [uploadModalVisible, setUploadModalVisible] = useState(false);
   const [outfitName, setOutfitName] = useState('');
@@ -49,14 +51,46 @@ export default function EditOutfitPage() {
         ...prev,
         [category.category]: clothType
       }));
+      
+      // 添加到可拖拽图片区域
+      const item = category.items.find(item => item.id === clothType);
+      if (item) {
+        const newImage: DraggableImageType = {
+          id: `draggable-${Date.now()}-${Math.random()}`,
+          src: item.imagePath,
+          x: 100 + draggableImages.length * 20,
+          y: 100 + draggableImages.length * 20,
+          width: 120,
+          height: 120,
+          rotation: 0,
+          clothType: clothType
+        };
+        setDraggableImages(prev => [...prev, newImage]);
+      }
     }
   };
 
   const handleRemoveCloth = (category: CategoryType) => {
+    const clothType = selectedCloths[category];
     setSelectedCloths(prev => ({
       ...prev,
       [category]: null
     }));
+    
+    // 同时移除对应的可拖拽图片
+    if (clothType) {
+      setDraggableImages(prev => prev.filter(img => img.clothType !== clothType));
+    }
+  };
+
+  const handleUpdateDraggableImage = (updatedImage: DraggableImageType) => {
+    setDraggableImages(prev => 
+      prev.map(img => img.id === updatedImage.id ? updatedImage : img)
+    );
+  };
+
+  const handleRemoveDraggableImage = (id: string) => {
+    setDraggableImages(prev => prev.filter(img => img.id !== id));
   };
 
   const handleSaveOutfit = () => {
@@ -205,6 +239,18 @@ export default function EditOutfitPage() {
           showUploadButton={true}
           onUploadClick={() => setUploadModalVisible(true)}
         />
+        
+        {/* 可拖拽图片展示区域 */}
+        <div className="DraggableImageArea">
+          {draggableImages.map(image => (
+            <DraggableImage
+              key={image.id}
+              image={image}
+              onUpdate={handleUpdateDraggableImage}
+              onRemove={handleRemoveDraggableImage}
+            />
+          ))}
+        </div>
         
         {/* 选中衣服展示区域 */}
         <div className="SelectedClothsArea">
